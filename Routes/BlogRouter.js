@@ -1,6 +1,6 @@
 const express = require('express');
 const BlogsController = require('../Controller/BlogController');
-const {blogFetch} = require('../Middleware/authMiddleware')
+const {blogFetch} = require('../Middleware/blogFetchMiddleware')
 const blogsRouter = express.Router();
 
 

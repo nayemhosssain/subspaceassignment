@@ -4,7 +4,6 @@ require("dotenv").config();
 // Define the caching period in milliseconds (e.g., 1 minutes)
 const cachingPeriod = 1 * 60 * 1000; // 1 minutes
 
-
 // Custom memoization function for fetching and analyzing blog data
 const getCachedBlogs = _.memoize(async (req, res) => {
     try {
@@ -44,7 +43,7 @@ const getCachedBlogs = _.memoize(async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Internal server error' });
       }
-}, (req) => req.query.query, cachingPeriod);
+}, (req) => req, cachingPeriod);
 
 
 // Custom memoization function for blog search
@@ -80,7 +79,7 @@ const cachedBlogSearch = _.memoize(async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Internal server error' });
       }
-}, (req) => req.query.query, cachingPeriod);
+},(req) => req, cachingPeriod);
 
 
 
